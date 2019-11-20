@@ -10,21 +10,53 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>Link 3</li>
-                <li>Link 4</li>
-            </ul>
-        </nav>
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    <img src="https://placekitten.com/100/200" alt="Placeholder">
+                </div>
+                <ul>
+                    <li>Link 1</li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
+                    <li>Link 4</li>
+                </ul>
+            </nav>
+            <h1>You need a friend!</h1>
+        </div>
     </header>
 
     <main>
         <section id="searchArea">
             <div class="wrapper">
                 <form id="searchForCats" action="submit">
+                    <div class="inputs">
+                        <label for="postalCode">Postal Code</label>
+                        <input type="text" name="postalCode" id="postalCode">
+                        <label for="age">Age</label>
+                        <select name="age" id="age">
+                        </select>
+                        <label for="breed">Breed</label>
+                        <select name="breed" id="breed">
+                        </select>
+                        <label for="fur">Fur</label>
+                        <select name="fur" id="fur">
+                        </select>
+                        <label for="distance">Distance</label>
+                        <select name="distance" id="distance">
+                        </select>
+                        <label for="size">Size</label>
+                        <select name="size" id="size">
+                        </select>
+                        <label for="sex">Sex</label>
+                        <select name="sex" id="sex">
+                        </select>
+                        <label for="colour">Color</label>
+                        <select name="colour" id="colour">
+                        </select>
+                    </div>
 
+                    <button type="submit">Find a kitty</button>
                 </form>
             </div>
         </section>
@@ -40,10 +72,31 @@
     <footer>
         <div class="wrapper">
             <div class="footerInformation">
-                
+                <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt hic non in perferendis, necessitatibus repellendus, porro facilis commodi quisquam, vitae vel voluptate. Et quos voluptate iste cupiditate exercitationem mollitia voluptatum?
+                </div>
+                <div>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Link1</a></li>
+                            <li><a href="#">Link2</a></li>
+                            <li><a href="#">Link3</a></li>
+                            <li><a href="#">Link4</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <ul>
+                        <li><i></i></li>
+                        <li><i></i></li>
+                        <li><i></i></li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
-    
+                <p>
+                    Copyright 2019 Jasime & Lauren
+                </p>
             </div>
         </div>
     </footer>

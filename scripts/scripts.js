@@ -88,7 +88,9 @@ app.getInfo = function(query) {
     })
     .then( (response) => {
         // check if responding console.log(response); 
-        api.displayInfo(response);
+        app.displayInfo(response);
+    }).fail((err) => {
+        console.log(err);
     })
 }
 
@@ -101,19 +103,27 @@ app.displayInfo = function(response) {
     for(let key in response.data){
         const name = response.data[key].animalName;
         // removed because data doesnt provide enough information currently without needing excessive modification. const age = response.data[key].animalAge
-        const image = response.data[key].animalPictures[0].urlSecureFullsize;
+        // console.log(response.data[key]);
+        let image='';
 
-        // append information to page in #searchResults
-        $('#searchResults').append
+        if (response.data[key].animalPictures.length === 0) {
+            image='assets/placeholderImage.png';
+        }
+        else {
+            image = response.data[key].animalPictures[0].urlSecureFullsize;
+        }
 
+        
         const htmlToAdd = `
         <li>
-            <div class="imgContainer"><img src="${image}" alt=""></div>
-            <h3>${name}</h3>
-            <button>Click for more information!</button>
+        <div class="imgContainer"><img src="${image}" alt=""></div>
+        <h3>${name}</h3>
+        <button>Click for more information!</button>
         </li>
         `;
-
+        
+        // append information to page in #searchResults
+        $('#searchResults').append(htmlToAdd);
     }
 }
 

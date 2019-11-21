@@ -36,6 +36,9 @@ $cardBorderRadius: 30px;
         display: flex;
         flex-wrap: wrap;
         li {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             border: 3px $primaryBlack solid;
             width: calc(100% / 3 - 20px);
             margin: 15px 30px 15px 0;
@@ -46,8 +49,15 @@ $cardBorderRadius: 30px;
                 margin-right: 0;
             }
 
+            .imgContainer {
+                flex-basis: 300px;
+                flex-grow: 1;
+            }
+
             img {
                 width: 100%;
+                object-fit: cover;
+                height: 100%;
             }
 
             button {

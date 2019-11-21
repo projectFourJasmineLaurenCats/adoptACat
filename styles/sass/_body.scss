@@ -17,9 +17,11 @@ h1 {
     font-family: $secondaryFont;
 }
 
-p {
+p,
+ul {
     margin: 0;
 }
+
 // wrapper
 .wrapper {
     width: 80%;

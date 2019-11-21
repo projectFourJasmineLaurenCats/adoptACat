@@ -252,7 +252,8 @@ h1 {
   font-family: "Calistoga", cursive;
 }
 
-p {
+p,
+ul {
   margin: 0;
 }
 
@@ -382,6 +383,49 @@ ul, li, a {
 .searchArea form button:hover, .searchArea form button:focus {
   background: #FFFFFF;
   color: #429EC5;
+}
+
+.searchResults {
+  background: #FFFFFF;
+}
+
+.searchResults ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.searchResults ul li {
+  border: 3px #1B1B1B solid;
+  width: calc(100% / 3 - 20px);
+  margin: 15px 30px 15px 0;
+  border-radius: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.searchResults ul li:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.searchResults ul li img {
+  width: 100%;
+}
+
+.searchResults ul li button {
+  border: 0;
+  background: #BE97D3;
+  color: #FFFFFF;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
+  padding: 15px;
+  width: 100%;
+}
+
+.searchResults ul li button:hover, .searchResults ul li button:focus {
+  background: #429EC5;
 }
 
 footer {

@@ -87,6 +87,7 @@ app.getInfo = function(query) {
         data: JSON.stringify(query)
     })
     .then( (response) => {
+        app.data = response
         // check if responding console.log(response); 
         app.displayInfo(response);
     }).fail((err) => {

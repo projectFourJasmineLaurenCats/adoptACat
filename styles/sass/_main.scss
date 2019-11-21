@@ -1,7 +1,9 @@
 .searchArea {
     padding: 40px 0;
+    text-align: center;
     form {
         .inputs {
+            margin: 20px 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -14,6 +16,7 @@
         }
         button {
             display: block;
+            border-radius: $cardBorderRadius;
             border: 0;
             padding: 15px;
             width: 25%;
@@ -29,8 +32,9 @@
     }
 }
 
-$cardBorderRadius: 30px;
+
 .searchResults {
+    padding: 20px 0;
     background: $primaryWhite;
     ul {
         display: flex;
@@ -39,7 +43,7 @@ $cardBorderRadius: 30px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 3px $primaryBlack solid;
+            border: 3px $popColour solid;
             width: calc(100% / 3 - 20px);
             margin: 15px 30px 15px 0;
             border-radius: $cardBorderRadius;

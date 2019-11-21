@@ -252,9 +252,23 @@ h1 {
   font-family: "Calistoga", cursive;
 }
 
+h2,
+h3 {
+  font-family: "Calistoga", cursive;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
 p,
 ul {
   margin: 0;
+}
+
+button,
+input,
+select {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
 }
 
 .wrapper {
@@ -329,9 +343,9 @@ ul, li, a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .headerNav ul li {
@@ -348,9 +362,11 @@ ul, li, a {
 
 .searchArea {
   padding: 40px 0;
+  text-align: center;
 }
 
 .searchArea form .inputs {
+  margin: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -370,6 +386,7 @@ ul, li, a {
 
 .searchArea form button {
   display: block;
+  border-radius: 30px;
   border: 0;
   padding: 15px;
   width: 25%;
@@ -386,6 +403,7 @@ ul, li, a {
 }
 
 .searchResults {
+  padding: 20px 0;
   background: #FFFFFF;
 }
 
@@ -408,7 +426,7 @@ ul, li, a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 3px #1B1B1B solid;
+  border: 3px #429EC5 solid;
   width: calc(100% / 3 - 20px);
   margin: 15px 30px 15px 0;
   border-radius: 30px;

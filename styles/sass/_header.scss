@@ -1,0 +1,10 @@
+header {
+    background: url(../assets/headerBackground.jpg);
+    background-size: cover;
+    height: 80vh;
+    background-position: center;
+    color: $primaryWhite;
+    h1, li {
+        filter: drop-shadow(0 0 4px $primaryBlack);
+    }
+}

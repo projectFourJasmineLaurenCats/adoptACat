@@ -56,10 +56,26 @@ function buildQuery(){
     return searchObject;
 };
 
-console.log(buildQuery());
-
 // Collect user input
 app.collectInfo = function() {
+    const postalCode = $('#postalCode').val();
+    const age = $('#age').val();
+    const breed = $('#breed').val();
+    const fur = $('#fur').val();
+    const distance = $('#distance').val();
+    const size = $('#size').val();
+    const sex = $('#sex').val();
+    const colour = $('#colour').val();
+    return {
+        postalCode: postalCode,
+        age: age,
+        breed: breed,
+        fur: fur,
+        distance: distance,
+        size: size,
+        sex: sex,
+        colour: colour
+    };
 }
 
 // RescueGroups API Request
@@ -74,7 +90,14 @@ app.displayInfo = function() {
 
 // Start app
 app.init = function() {
+    $('#searchForCats').on('submit', function(e) {
+        e.preventDefault();
 
+        const userInput = app.collectInfo();
+
+        
+
+    });
 }
 
 // document ready

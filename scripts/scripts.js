@@ -79,13 +79,42 @@ app.collectInfo = function() {
 }
 
 // RescueGroups API Request
-app.getInfo = function() {
-
+app.getInfo = function(query) {
+    $.ajax({
+        url: app.apiUrl,
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(query)
+    })
+    .then( (response) => {
+        // check if responding console.log(response); 
+        api.displayInfo(response);
+    })
 }
 
 // Display data on the page
-app.displayInfo = function() {
+app.displayInfo = function(response) {
+    // call the search results and add as html
+    $('#searchResults').html('')
 
+    // cycle through data from api 
+    for(let key in response.data){
+        const name = response.data[key].animalName;
+        // removed because data doesnt provide enough information currently without needing excessive modification. const age = response.data[key].animalAge
+        const image = response.data[key].animalPictures[0].urlSecureFullsize;
+
+        // append information to page in #searchResults
+        $('#searchResults').append
+
+        const htmlToAdd = `
+        <li>
+            <div class="imgContainer"><img src="${image}" alt=""></div>
+            <h3>${name}</h3>
+            <button>Click for more information!</button>
+        </li>
+        `;
+
+    }
 }
 
 // Start app
@@ -95,8 +124,10 @@ app.init = function() {
 
         const userInput = app.collectInfo();
 
-        
-
+        // to do : put user input into build query
+        const query = buildQuery();
+        // passing query into getInfo
+        app.getInfo(query);
     });
 }
 

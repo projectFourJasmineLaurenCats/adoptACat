@@ -252,6 +252,10 @@ h1 {
   font-family: "Calistoga", cursive;
 }
 
+p {
+  margin: 0;
+}
+
 .wrapper {
   width: 80%;
   max-width: 1100px;
@@ -293,6 +297,19 @@ ul, li, a {
   text-decoration: none;
 }
 
+.headerNav a,
+.footerNav a {
+  padding: 10px 20px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.headerNav a:hover, .headerNav a:focus,
+.footerNav a:hover,
+.footerNav a:focus {
+  text-decoration: underline;
+}
+
 .headerNav {
   position: absolute;
   width: 100%;
@@ -324,14 +341,8 @@ ul, li, a {
   border-right: none;
 }
 
-.headerNav ul li a {
-  padding: 10px 20px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-}
-
-.headerNav ul li a:hover, .headerNav ul li a:focus {
-  text-decoration: underline;
+.footerNav {
+  text-align: center;
 }
 
 .searchArea {
@@ -371,4 +382,51 @@ ul, li, a {
 .searchArea form button:hover, .searchArea form button:focus {
   background: #FFFFFF;
   color: #429EC5;
+}
+
+footer {
+  background: #1B1B1B;
+  color: #FFFFFF;
+}
+
+footer .footerInformation {
+  padding: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footerText {
+  width: 40%;
+}
+
+footer .footerSocial {
+  width: 20%;
+}
+
+footer .footerSocial ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+footer .footerSocial i {
+  font-size: 2rem;
+  padding-left: 20px;
+}
+
+footer .footerNav {
+  width: 40%;
+}
+
+.copyright {
+  background: #0e0e0e;
+  padding: 20px 0;
+  text-align: center;
 }

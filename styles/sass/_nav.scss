@@ -1,10 +1,20 @@
-
 ul {
     padding: 0;
 }
 ul, li, a {
     list-style: none;
     text-decoration: none;
+}
+.headerNav,
+.footerNav {
+    a {
+        padding: 10px 20px;
+        color: $primaryWhite;
+        text-transform: uppercase;
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
 }
 
 .headerNav {
@@ -21,19 +31,11 @@ ul, li, a {
             &:last-of-type {
                 border-right: none;
             } 
-            a {
-                padding: 10px 20px;
-                color: $primaryWhite;
-                text-transform: uppercase;
-                &:hover, &:focus {
-                    text-decoration: underline;
-                }
-            }
         }
     }
 
 }
 
-// .footerNav {
-
-// }
+.footerNav {
+    text-align: center;
+}

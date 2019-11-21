@@ -247,7 +247,7 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: normal;
   font-family: "Calistoga", cursive;
 }
@@ -266,7 +266,70 @@ header {
   color: #FFFFFF;
 }
 
-header h1, header li {
+header .wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+header h1 {
   -webkit-filter: drop-shadow(0 0 4px #1B1B1B);
           filter: drop-shadow(0 0 4px #1B1B1B);
+  margin: auto;
+}
+
+ul {
+  padding: 0;
+}
+
+ul, li, a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.headerNav {
+  position: absolute;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerNav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.headerNav ul li {
+  border-right: 1px solid #FFFFFF;
+}
+
+.headerNav ul li:last-of-type {
+  border-right: none;
+}
+
+.headerNav ul li a {
+  padding: 10px 20px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.headerNav ul li a:hover, .headerNav ul li a:focus {
+  text-decoration: underline;
 }

@@ -4,7 +4,16 @@ header {
     height: 80vh;
     background-position: center;
     color: $primaryWhite;
-    h1, li {
+    
+    .wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    h1 {
         filter: drop-shadow(0 0 4px $primaryBlack);
+        margin: auto;
+        // flex-grow: 1;
     }
 }

@@ -1,0 +1,39 @@
+
+ul {
+    padding: 0;
+}
+ul, li, a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.headerNav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    ul {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        li {
+            border-right: 1px solid $primaryWhite;
+            &:last-of-type {
+                border-right: none;
+            } 
+            a {
+                padding: 10px 20px;
+                color: $primaryWhite;
+                text-transform: uppercase;
+                &:hover, &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+}
+
+// .footerNav {
+
+// }

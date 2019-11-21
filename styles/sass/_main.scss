@@ -1,0 +1,30 @@
+.searchArea {
+    padding: 40px 0;
+    form {
+        .inputs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            input, select {
+                width: calc(100% / 4 - 20px);
+                margin: 15px 0;
+                border: 0;
+                height: 40px;
+            }
+        }
+        button {
+            display: block;
+            border: 0;
+            padding: 15px;
+            width: 25%;
+            margin: 0 auto;
+            background: $popColour;
+            color: $primaryWhite;
+            transition: ease all 0.3s;
+            &:hover, &:focus {
+                background: $primaryWhite;
+                color: $popColour;
+            }
+        }
+    }
+}

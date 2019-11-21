@@ -221,7 +221,7 @@ html {
           box-sizing: inherit;
 }
 
-.sr-only {
+.visuallyHidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -332,4 +332,43 @@ ul, li, a {
 
 .headerNav ul li a:hover, .headerNav ul li a:focus {
   text-decoration: underline;
+}
+
+.searchArea {
+  padding: 40px 0;
+}
+
+.searchArea form .inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.searchArea form .inputs input, .searchArea form .inputs select {
+  width: calc(100% / 4 - 20px);
+  margin: 15px 0;
+  border: 0;
+  height: 40px;
+}
+
+.searchArea form button {
+  display: block;
+  border: 0;
+  padding: 15px;
+  width: 25%;
+  margin: 0 auto;
+  background: #429EC5;
+  color: #FFFFFF;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
+}
+
+.searchArea form button:hover, .searchArea form button:focus {
+  background: #FFFFFF;
+  color: #429EC5;
 }

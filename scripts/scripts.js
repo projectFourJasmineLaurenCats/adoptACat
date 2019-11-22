@@ -138,7 +138,42 @@ app.showDetails = function(key) {
     $('#searchResultsSection').addClass('hidden');
     $('#detailedResults').removeClass('hidden');
 
-    console.log(kitty);
+    // console.log(kitty);
+    let image='';
+
+    if (kitty.animalPictures.length === 0) {
+        image='assets/placeholderImage.png';
+    }
+    else {
+        image = kitty.animalPictures[0].urlSecureFullsize;
+    }
+
+    const name = kitty.animalName;
+
+    let description = kitty.animalDescriptionPlain;
+    if (description==='') {
+        description = "No description available.";
+    }
+
+
+    const detailedHtml = `
+    <div class="imgContainer"><img src="${image}" alt="Image of ${name} from API"></div>
+    <div>
+        <h3>${name}</h3>
+        <ul>
+            <li>Info key : Info detail</li>
+            <li>Info key : Info detail</li>
+            <li>Info key : Info detail</li>
+            <li>Info key : Info detail</li>
+        </ul>
+        <h4>Description</h4>
+        <p>${description}</p>
+        <a href='#' target="_blank">Link to adoption page</a>
+        <a href='#'>Back to search results</a>
+    </div>
+    `;
+
+    $('.flexParent').html(detailedHtml);
 };
 
 

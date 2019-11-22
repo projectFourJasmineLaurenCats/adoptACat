@@ -87,7 +87,7 @@ app.getInfo = function(query) {
         data: JSON.stringify(query)
     })
     .then( (response) => {
-        app.data = response
+        app.response = response
         // check if responding console.log(response); 
         app.displayInfo(response);
     }).fail((err) => {
@@ -98,7 +98,10 @@ app.getInfo = function(query) {
 // Display data on the page
 app.displayInfo = function(response) {
     // call the search results and add as html
-    $('#searchResults').html('')
+    $('#searchResultsSection').removeClass('hidden');
+    $('#searchResults').html('');
+    $('#detailedResults').addClass('hidden');
+
 
     // cycle through data from api 
     for(let key in response.data){
@@ -119,7 +122,7 @@ app.displayInfo = function(response) {
         <li>
         <div class="imgContainer"><img src="${image}" alt=""></div>
         <h3>${name}</h3>
-        <button>Click for more information!</button>
+        <button data-key = ${key}>Click for more information!</button>
         </li>
         `;
         
@@ -128,17 +131,32 @@ app.displayInfo = function(response) {
     }
 }
 
+app.showDetails = function(key) {
+    // grab object of key so we dont have to type it every time.
+    const kitty = app.response.data[key]
+
+    $('#searchResultsSection').addClass('hidden');
+    $('#detailedResults').removeClass('hidden');
+
+    console.log(kitty);
+};
+
+
 // Start app
 app.init = function() {
     $('#searchForCats').on('submit', function(e) {
         e.preventDefault();
-
         const userInput = app.collectInfo();
-
         // to do : put user input into build query
         const query = buildQuery();
         // passing query into getInfo
         app.getInfo(query);
+    });
+    $('#searchResults').on('click', "button", function(e) {
+        e.preventDefault();
+        const key = $(this).data('key');
+        app.showDetails(key);
+        // call key to make sure its working console.log(key, app.response.data[key]);
     });
 }
 

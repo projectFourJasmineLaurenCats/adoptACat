@@ -239,6 +239,15 @@ html {
   font-size: 125%;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
 body {
   font-size: 0.9rem;
   font-family: "Raleway", sans-serif;
@@ -246,22 +255,22 @@ body {
   color: #1B1B1B;
 }
 
-h1 {
-  font-size: 3rem;
+h1, h2, h3, h4 {
   font-weight: normal;
   font-family: "Calistoga", cursive;
 }
 
-h2,
-h3 {
-  font-family: "Calistoga", cursive;
-  font-size: 1.6rem;
-  margin: 0;
+h1 {
+  font-size: 3rem;
 }
 
-p,
-ul {
-  margin: 0;
+h2,
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.2rem;
 }
 
 button,
@@ -402,9 +411,17 @@ ul, li, a {
   color: #429EC5;
 }
 
+.hidden {
+  display: none;
+}
+
 .searchResults {
   padding: 20px 0;
   background: #FFFFFF;
+}
+
+.searchResults h2 {
+  text-align: center;
 }
 
 .searchResults ul {
@@ -465,6 +482,81 @@ ul, li, a {
 
 .searchResults ul li button:hover, .searchResults ul li button:focus {
   background: #429EC5;
+}
+
+.detailedResults {
+  padding: 20px 0;
+  background: #FFFFFF;
+}
+
+.detailedResults h2 {
+  text-align: center;
+}
+
+.detailedResults h4 {
+  color: #429EC5;
+}
+
+.detailedResults p, .detailedResults h4, .detailedResults ul {
+  margin: 10px 0;
+}
+
+.detailedResults ul {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #9b9b9b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.detailedResults ul li {
+  width: calc(25% - (45px / 4));
+  margin-right: 15px;
+}
+
+.detailedResults ul li:nth-of-type(4n) {
+  margin-right: 0;
+}
+
+.detailedResults .flexParent {
+  padding: 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.detailedResults .flexParent .imgContainer {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-right: 40px;
+}
+
+.detailedResults .flexParent .imgContainer img {
+  border: 3px #429EC5 solid;
+  border-radius: 30px;
+}
+
+.detailedResults .flexParent a {
+  display: inline-block;
+  border: 3px #429EC5 solid;
+  border-radius: 30px;
+  padding: 15px;
+  background: #429EC5;
+  color: #FFFFFF;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
+  margin: 7.5px;
+}
+
+.detailedResults .flexParent a:hover, .detailedResults .flexParent a:focus {
+  background: #FFFFFF;
+  color: #429EC5;
 }
 
 footer {

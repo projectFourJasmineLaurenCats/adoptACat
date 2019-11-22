@@ -3,6 +3,15 @@ html {
     font-size: 125%;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+    margin: 0;
+}
+
 body {
     font-size: 0.9rem;
     font-family: $baseFont;
@@ -11,20 +20,21 @@ body {
     color: $primaryBlack;
 }
 
-h1 {
-    font-size: 3rem;
+h1, h2, h3, h4 {
     font-weight: normal;
     font-family: $secondaryFont;
 }
+
+h1 {
+    font-size: 3rem;
+}
 h2,
 h3 {
-    font-family: $secondaryFont;
     font-size: 1.6rem;
-    margin: 0;
 }
-p,
-ul {
-    margin: 0;
+
+h4 {
+    font-size: 1.2rem;
 }
 
 button,

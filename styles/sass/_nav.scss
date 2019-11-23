@@ -11,7 +11,7 @@ ul, li, a {
         padding: 10px 20px;
         color: $primaryWhite;
         text-transform: uppercase;
-        &:hover, &:focus {
+        &:hover, &:focus, &.selected {
             text-decoration: underline;
         }
     }
@@ -22,6 +22,7 @@ ul, li, a {
     width: 100%;
     display: flex;
     align-items: center;
+    padding-top: 20px;
     ul {
         display: flex;
         flex-grow: 1;

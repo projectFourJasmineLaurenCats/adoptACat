@@ -205,14 +205,44 @@ app.showDetails = function(key) {
         </ul>
         <h4>Description</h4>
         <p>${description}</p>
-        <a href='#' target="_blank">Link to adoption page</a>
+        <div class="orgInfo"></div>
         <a href='#'>Back to search results</a>
     </div>
     `;
 
     $('.flexParent').html(detailedHtml);
+
+    app.orgInfo(kitty.animalOrgID);
 };
 
+app.orgInfo = function(orgID) {
+    let orgInfo = `
+    {
+        "apikey": "${app.apiKey}",
+        "objectType":"orgs",
+        "objectAction":"publicView",
+        "values":
+        [
+            {
+                "orgID":"${orgID}"
+            }
+     
+        ],
+        "fields":["orgID","orgName","orgAddress","orgPhone","orgEmail","orgWebsiteUrl","orgAdoptionUrl"]
+    }
+    `;
+    $.ajax({
+        url: app.apiUrl,
+        method: 'POST',
+        dataType: 'json',
+        data: orgInfo
+    })
+    .then( (response) => {
+        console.log(response);
+    }).fail((err) => {
+        console.log(err);
+    })
+}
 
 // Start app
 app.init = function() {

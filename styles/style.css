@@ -261,7 +261,8 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.4rem;
+  text-transform: capitalize;
 }
 
 h2,
@@ -289,9 +290,14 @@ select {
 header {
   background: url(../assets/headerBackground.jpg);
   background-size: cover;
-  height: 80vh;
+  height: 100vh;
   background-position: center;
   color: #FFFFFF;
+}
+
+header ul, header .logo, header h2 {
+  -webkit-filter: drop-shadow(0 0 4px #1B1B1B);
+          filter: drop-shadow(0 0 4px #1B1B1B);
 }
 
 header .wrapper {
@@ -306,10 +312,9 @@ header .wrapper {
   height: 100%;
 }
 
-header h1 {
-  -webkit-filter: drop-shadow(0 0 4px #1B1B1B);
-          filter: drop-shadow(0 0 4px #1B1B1B);
+header h2 {
   margin: auto;
+  font-size: 3rem;
 }
 
 ul {
@@ -328,9 +333,10 @@ ul, li, a {
   text-transform: uppercase;
 }
 
-.headerNav a:hover, .headerNav a:focus,
+.headerNav a:hover, .headerNav a:focus, .headerNav a.selected,
 .footerNav a:hover,
-.footerNav a:focus {
+.footerNav a:focus,
+.footerNav a.selected {
   text-decoration: underline;
 }
 
@@ -343,6 +349,7 @@ ul, li, a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 20px;
 }
 
 .headerNav ul {

@@ -34,7 +34,7 @@ function buildQuery(userInput){
         search: {
             resultStart: 0,
             resultLimit: 9,
-            resultSort: 'animalID',
+            resultSort: 'animalLocationDistance',
             resultOrder: 'asc',
             filters: [
                 {
@@ -73,7 +73,19 @@ function buildQuery(userInput){
 
 // Collect user input
 app.collectInfo = function() {
-    const postalCode = $('#postalCode').val();
+    let postalCode = $('#postalCode').val();
+
+    //postal code missing space correction
+    if(/^[a-z][0-9][a-z][0-9][a-z][0-9]$/i.test(postalCode)){
+        postalCode = postalCode.slice(0, 3) + ' ' + postalCode.slice(3);
+    }
+    //tests if it is a postal or a zip, ! tests if it is neither of these 
+    else if(!(/^[a-z][0-9][a-z] [0-9][a-z][0-9]$/i.test(postalCode) || /^[0-9]{5}$/.test(postalCode))) {
+        alert('Please enter valid postal or zip code');
+    }
+    //it is what it is
+
+
     const age = $('#age').val();
     const breed = $('#breed').val();
     const fur = $('#fur').val();
@@ -82,7 +94,7 @@ app.collectInfo = function() {
     const sex = $('#sex').val();
     const colour = $('#colour').val();
     return {
-        animalLocation: postalCode,
+        animalLocation: postalCode.toUpperCase(),
         animalGeneralAge: age,
         animalBreed: breed,
         animalCoatLength: fur,

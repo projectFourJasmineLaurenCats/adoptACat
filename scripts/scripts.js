@@ -47,51 +47,67 @@ function buildQuery(userInput){
                     operation: 'equals',
                     criteria: 'Available'
                 },
-                {
-                    fieldName: 'animalLocationDistance',
-                    operation: 'radius',
-                    criteria: `${userInput.distance}`
-                },
-                {
-                    fieldName: 'animalLocation',
-                    operation: 'equals',
-                    criteria: `${userInput.postalCode}`
-                },
-                {
-                    fieldName: 'animalColor',
-                    operation: 'contains',
-                    criteria: `${userInput.colour}`
-                },
-                {
-                    fieldName: 'animalCoatLength',
-                    operation: 'equals',
-                    criteria: `${userInput.fur}`
-                },
-                {
-                    fieldName: 'animalSex',
-                    operation: 'equals',
-                    criteria: `${userInput.sex}`
-                },
-                {
-                    fieldName: 'animalGeneralAge',
-                    operation: 'equals',
-                    criteria: `${userInput.age}`
-                },
-                {
-                    fieldName: 'animalBreed',
-                    operation: 'contains',
-                    criteria: `${userInput.breed}`
-                },
-                {
-                    fieldName: 'animalOKWithKids',
-                    operation: 'equals',
-                    criteria: `${userInput.kids}`
-                }
+                // {
+                //     fieldName: 'animalLocationDistance',
+                //     operation: 'radius',
+                //     criteria: `${userInput.distance}`
+                // },
+                // {
+                //     fieldName: 'animalLocation',
+                //     operation: 'equals',
+                //     criteria: `${userInput.postalCode}`
+                // },
+                // {
+                //     fieldName: 'animalColor',
+                //     operation: 'contains',
+                //     criteria: `${userInput.colour}`
+                // },
+                // {
+                //     fieldName: 'animalCoatLength',
+                //     operation: 'equals',
+                //     criteria: `${userInput.fur}`
+                // },
+                // {
+                //     fieldName: 'animalSex',
+                //     operation: 'equals',
+                //     criteria: `${userInput.sex}`
+                // },
+                // {
+                //     fieldName: 'animalGeneralAge',
+                //     operation: 'equals',
+                //     criteria: `${userInput.age}`
+                // },
+                // {
+                //     fieldName: 'animalBreed',
+                //     operation: 'contains',
+                //     criteria: `${userInput.breed}`
+                // },
+                // {
+                //     fieldName: 'animalOKWithKids',
+                //     operation: 'equals',
+                //     criteria: `${userInput.kids}`
+                // }
             ],
             filterProcessing: 1,
             fields: ['animalID', 'animalSpecies', 'animalPictures', 'animalOrgID', 'animalActivityLevel', 'animalAdoptedDate', 'animalAdoptionFee', 'animalAgeString', 'animalAltered', 'animalAvailableDate', 'animalBirthdate', 'animalBirthdateExact', 'animalBreed', 'animalCoatLength', 'animalColor', 'animalColorID', 'animalColorDetails', 'animalCourtesy', 'animalDeclawed', 'animalDescription', 'animalDescriptionPlain', 'animalEnergyLevel', 'animalEyeColor', 'animalGeneralAge', 'animalGeneralSizePotential', 'animalGroomingNeeds', 'animalHousetrained', 'animalIndoorOutdoor', 'animalLocation', 'animalLocationCoordinates', 'animalLocationDistance', 'animalLocationCitystate', 'animalMicrochipped', 'animalMixedBreed', 'animalName', 'animalSpecialneeds', 'animalSpecialneedsDescription', 'animalNewPeople', 'animalNotHousetrainedReason', 'animalObedienceTraining', 'animalOKWithAdults', 'animalOKWithCats', 'animalOKWithDogs', 'animalOKWithKids', 'animalPattern', 'animalPatternID', 'animalPrimaryBreed', 'animalPrimaryBreedID', 'animalRescueID', 'animalSearchString', 'animalSecondaryBreed', 'animalSecondaryBreedID', 'animalSex', 'animalShedding', 'animalSizeCurrent', 'animalSizePotential', 'animalSizeUOM', 'animalSpecies', 'animalSpeciesID', 'animalStatus', 'animalStatusID', 'animalSummary', 'animalThumbnailUrl', 'animalUptodate', 'animalUpdatedDate', 'animalUrl', 'animalVocal', 'animalAffectionate', 'animalApartment', 'animalDrools', 'animalEagerToPlease', 'animalEscapes', 'animalEventempered', 'animalFetches', 'animalGentle', 'animalGoodInCar', 'animalGoofy', 'animalHasAllergies', 'animalHearingImpaired', 'animalHypoallergenic', 'animalIndependent', 'animalIntelligent', 'animalLap', 'animalLeashtrained', 'animalNeedsCompanionAnimal', 'animalNoCold', 'animalOKForSeniors', 'animalOKWithFarmAnimals', 'animalOlderKidsOnly', 'animalOngoingMedical', 'animalPlayful', 'animalPlaysToys', 'animalPredatory', 'animalProtective', 'animalSightImpaired', 'animalSkittish', 'animalSpecialDiet', 'animalSwims', 'animalTimid', 'locationAddress', 'locationCity', 'locationCountry', 'locationUrl', 'locationName', 'locationPhone', 'locationState', 'locationPostalcode', 'animalPictures', 'animalVideos', 'animalVideoUrls']
         }
 
+    }
+    for(let key in userInput){
+        if(userInput[key] !== ''|| userInput[key] !== 'any'){
+            const filterItem = {
+                fieldName: key,
+                operation: 'equals',
+                criteria: userInput[key]
+            }
+            if(key === 'animalLocationDistance') {
+                filterItem.operation = 'radius';
+            }
+            if(key === 'animalColor' || key === 'animalBreed') {
+                filterItem.operation = 'contains';
+            } 
+            searchObject.search.filters.push(filterItem);
+        }
     }
     return searchObject;
 };
@@ -103,18 +119,18 @@ app.collectInfo = function() {
     const breed = $('#breed').val();
     const fur = $('#fur').val();
     const distance = $('#distance').val();
-    const size = $('#size').val();
+    const kids = $('#kids').val();
     const sex = $('#sex').val();
     const colour = $('#colour').val();
     return {
-        postalCode: postalCode,
-        age: age,
-        breed: breed,
-        fur: fur,
-        distance: distance,
-        size: size,
-        sex: sex,
-        colour: colour
+        animalLocation: postalCode,
+        animalGeneralAge: age,
+        animalBreed: breed,
+        animalCoatLength: fur,
+        animalLocationDistance: distance,
+        animalOKWithKids: kids,
+        animalSex: sex,
+        animalColor: colour
     };
 }
 

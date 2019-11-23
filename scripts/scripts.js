@@ -26,7 +26,7 @@ app.apiKey='FR5X6Jh3';
 app.apiUrl='https://api.rescuegroups.org/http/v2.json';
 
 // function to build search query
-function buildQuery(){
+function buildQuery(userInput){
     const searchObject = {
         apikey: app.apiKey,
         objectType: 'animals',
@@ -46,6 +46,46 @@ function buildQuery(){
                     fieldName: 'animalStatus',
                     operation: 'equals',
                     criteria: 'Available'
+                },
+                {
+                    fieldName: 'animalLocationDistance',
+                    operation: 'radius',
+                    criteria: `${userInput.distance}`
+                },
+                {
+                    fieldName: 'animalLocation',
+                    operation: 'equals',
+                    criteria: `${userInput.postalCode}`
+                },
+                {
+                    fieldName: 'animalColor',
+                    operation: 'contains',
+                    criteria: `${userInput.colour}`
+                },
+                {
+                    fieldName: 'animalCoatLength',
+                    operation: 'equals',
+                    criteria: `${userInput.fur}`
+                },
+                {
+                    fieldName: 'animalSex',
+                    operation: 'equals',
+                    criteria: `${userInput.sex}`
+                },
+                {
+                    fieldName: 'animalGeneralAge',
+                    operation: 'equals',
+                    criteria: `${userInput.age}`
+                },
+                {
+                    fieldName: 'animalBreed',
+                    operation: 'contains',
+                    criteria: `${userInput.breed}`
+                },
+                {
+                    fieldName: 'animalOKWithKids',
+                    operation: 'equals',
+                    criteria: `${userInput.kids}`
                 }
             ],
             filterProcessing: 1,
@@ -183,7 +223,7 @@ app.init = function() {
         e.preventDefault();
         const userInput = app.collectInfo();
         // to do : put user input into build query
-        const query = buildQuery();
+        const query = buildQuery(userInput);
         // passing query into getInfo
         app.getInfo(query);
     });

@@ -226,7 +226,6 @@ app.orgInfo = function(orgID) {
             {
                 "orgID":"${orgID}"
             }
-     
         ],
         "fields":["orgID","orgName","orgAddress","orgPhone","orgEmail","orgWebsiteUrl","orgAdoptionUrl"]
     }
@@ -237,8 +236,35 @@ app.orgInfo = function(orgID) {
         dataType: 'json',
         data: orgInfo
     })
+
     .then( (response) => {
-        console.log(response);
+    if(response.data.length > 0 ) { 
+        const orgObject = response.data[0];
+        let orgHtml = `
+            <h4>Adoption Organization Information</h4>
+            <p>You can adopt this very good cat at ${orgObject.orgName}</p>
+        `;
+        if(orgObject.orgAdoptionUrl !== ''){
+            orgHtml += `
+            <p>This kitty's website is <a target="_blank" href="${orgObject.orgAdoptionUrl}">${orgObject.orgAdoptionUrl}</a></p>
+            `
+        }
+        if (orgObject.orgWebsiteUrl !== '') {
+            orgHtml += `
+            <p>This organization's website is <a target="_blank" href="${orgObject.orgWebsiteUrl}">${orgObject.orgWebsiteUrl}</a></p>
+            `
+        }
+        if (orgObject.orgPhone !== '') {
+            orgHtml += `
+            <p>You can call this organization to adopt this kitty at ${orgObject.orgPhone} </p>
+            `
+        }
+        $('.detailedResults .orgInfo').html(orgHtml);
+    }
+
+
+        
+    // test that there is a response console.log(response);
     }).fail((err) => {
         console.log(err);
     })

@@ -36,47 +36,71 @@
                 <form id="searchForCats" class="searchForCats" action="submit">
                     <div class="inputs">
                         <label class="visuallyHidden" for="postalCode">Postal Code</label>
-                        <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code">
+                        <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code" required=true>
                         <label class="visuallyHidden" for="age">Age</label>
                         <select name="age" id="age">
                             <option value="">Age</option>
                             <option value="any">Any</option>
-                            <option value="kitten">Kitten</option>
-                            <option value="adult">Adult</option>
-                            <option value="senior">Senior</option>
+                            <!-- Breaking from convention because this formatting matches the API (i.e. first letter capital) -->
+                            <option value="Baby">Baby</option>
+                            <option value="Young">Young</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Senior">Senior</option>
                         </select>
                             
                         <label  class="visuallyHidden" for="breed">Breed</label>
                         <select name="breed" id="breed">
                             <option value="">Breed</option>
                             <option value="any">Any</option>
+                            <option value="Siamese">Siamese</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Ragdoll">Ragdoll</option>
+                            <option value="Tabby">Tabby</option>
+                            <option value="Maine Coon">Maine Coon</option>
                         </select>
                         <label  class="visuallyHidden" for="fur">Fur</label>
                         <select name="fur" id="fur">
                             <option value="">Fur</option>
                             <option value="any">Any</option>
+                            <option value="Short">Short</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Long">Long</option>
+
                         </select>
                         <label  class="visuallyHidden" for="distance">Distance</label>
                         <select name="distance" id="distance">
-                            <option value="">Distance</option>
-                            <option value="any">Any</option>
+                            <!-- API requires a distance if a location is given and doesn't seem to have "any distance" so lets just give it the entire planet -->
+                            <option value="20000">Distance</option>
+                            <option value="20000">Anywhere</option>
+                            <!-- API uses miles, but we like kilometers -->
+                            <option value="12">20 Kilometers</option>
+                            <option value="31">50 Kilometers</option>
+                            <option value="62">100 Kilometers</option>
                         </select>
                         <label  class="visuallyHidden" for="kids">Kids</label>
                         <select name="kids" id="kids">
                             <option value="">OK with Kids</option>
+                            <option value="any">Any</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
-                            <option value="any">Any</option>
                         </select>
                         <label  class="visuallyHidden" for="sex">Sex</label>
                         <select name="sex" id="sex">
                             <option value="">Sex</option>
                             <option value="any">Any</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                         <label  class="visuallyHidden" for="colour">Color</label>
                         <select name="colour" id="colour">
                             <option value="">Colour</option>
                             <option value="any">Any</option>
+                            <option value="Black">Black</option>
+                            <option value="Orange">Orange</option>
+                            <option value="White">White</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Calico">Calico</option>
                         </select>
                     </div>
 

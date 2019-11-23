@@ -46,55 +46,14 @@ function buildQuery(userInput){
                     fieldName: 'animalStatus',
                     operation: 'equals',
                     criteria: 'Available'
-                },
-                // {
-                //     fieldName: 'animalLocationDistance',
-                //     operation: 'radius',
-                //     criteria: `${userInput.distance}`
-                // },
-                // {
-                //     fieldName: 'animalLocation',
-                //     operation: 'equals',
-                //     criteria: `${userInput.postalCode}`
-                // },
-                // {
-                //     fieldName: 'animalColor',
-                //     operation: 'contains',
-                //     criteria: `${userInput.colour}`
-                // },
-                // {
-                //     fieldName: 'animalCoatLength',
-                //     operation: 'equals',
-                //     criteria: `${userInput.fur}`
-                // },
-                // {
-                //     fieldName: 'animalSex',
-                //     operation: 'equals',
-                //     criteria: `${userInput.sex}`
-                // },
-                // {
-                //     fieldName: 'animalGeneralAge',
-                //     operation: 'equals',
-                //     criteria: `${userInput.age}`
-                // },
-                // {
-                //     fieldName: 'animalBreed',
-                //     operation: 'contains',
-                //     criteria: `${userInput.breed}`
-                // },
-                // {
-                //     fieldName: 'animalOKWithKids',
-                //     operation: 'equals',
-                //     criteria: `${userInput.kids}`
-                // }
+                }
             ],
-            filterProcessing: 1,
             fields: ['animalID', 'animalSpecies', 'animalPictures', 'animalOrgID', 'animalActivityLevel', 'animalAdoptedDate', 'animalAdoptionFee', 'animalAgeString', 'animalAltered', 'animalAvailableDate', 'animalBirthdate', 'animalBirthdateExact', 'animalBreed', 'animalCoatLength', 'animalColor', 'animalColorID', 'animalColorDetails', 'animalCourtesy', 'animalDeclawed', 'animalDescription', 'animalDescriptionPlain', 'animalEnergyLevel', 'animalEyeColor', 'animalGeneralAge', 'animalGeneralSizePotential', 'animalGroomingNeeds', 'animalHousetrained', 'animalIndoorOutdoor', 'animalLocation', 'animalLocationCoordinates', 'animalLocationDistance', 'animalLocationCitystate', 'animalMicrochipped', 'animalMixedBreed', 'animalName', 'animalSpecialneeds', 'animalSpecialneedsDescription', 'animalNewPeople', 'animalNotHousetrainedReason', 'animalObedienceTraining', 'animalOKWithAdults', 'animalOKWithCats', 'animalOKWithDogs', 'animalOKWithKids', 'animalPattern', 'animalPatternID', 'animalPrimaryBreed', 'animalPrimaryBreedID', 'animalRescueID', 'animalSearchString', 'animalSecondaryBreed', 'animalSecondaryBreedID', 'animalSex', 'animalShedding', 'animalSizeCurrent', 'animalSizePotential', 'animalSizeUOM', 'animalSpecies', 'animalSpeciesID', 'animalStatus', 'animalStatusID', 'animalSummary', 'animalThumbnailUrl', 'animalUptodate', 'animalUpdatedDate', 'animalUrl', 'animalVocal', 'animalAffectionate', 'animalApartment', 'animalDrools', 'animalEagerToPlease', 'animalEscapes', 'animalEventempered', 'animalFetches', 'animalGentle', 'animalGoodInCar', 'animalGoofy', 'animalHasAllergies', 'animalHearingImpaired', 'animalHypoallergenic', 'animalIndependent', 'animalIntelligent', 'animalLap', 'animalLeashtrained', 'animalNeedsCompanionAnimal', 'animalNoCold', 'animalOKForSeniors', 'animalOKWithFarmAnimals', 'animalOlderKidsOnly', 'animalOngoingMedical', 'animalPlayful', 'animalPlaysToys', 'animalPredatory', 'animalProtective', 'animalSightImpaired', 'animalSkittish', 'animalSpecialDiet', 'animalSwims', 'animalTimid', 'locationAddress', 'locationCity', 'locationCountry', 'locationUrl', 'locationName', 'locationPhone', 'locationState', 'locationPostalcode', 'animalPictures', 'animalVideos', 'animalVideoUrls']
         }
 
     }
     for(let key in userInput){
-        if(userInput[key] !== ''|| userInput[key] !== 'any'){
+        if(userInput[key] !== '' && userInput[key] !== 'any'){
             const filterItem = {
                 fieldName: key,
                 operation: 'equals',
@@ -136,6 +95,7 @@ app.collectInfo = function() {
 
 // RescueGroups API Request
 app.getInfo = function(query) {
+    console.log(query);
     $.ajax({
         url: app.apiUrl,
         method: 'POST',
@@ -143,6 +103,7 @@ app.getInfo = function(query) {
         data: JSON.stringify(query)
     })
     .then( (response) => {
+        console.log(response);
         app.response = response
         // check if responding console.log(response); 
         app.displayInfo(response);
@@ -186,6 +147,14 @@ app.displayInfo = function(response) {
         $('#searchResults').append(htmlToAdd);
     }
 }
+
+// maybe we can fix broken images? (???)
+// app.brokenImage = function() {
+//     console.log('this',this);
+//     imageSource.src = "assets/placeholderImage.png";
+//     imageSource.onerror = "";
+//     return true;
+// }
 
 app.showDetails = function(key) {
     // grab object of key so we dont have to type it every time.

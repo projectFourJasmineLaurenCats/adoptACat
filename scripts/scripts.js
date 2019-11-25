@@ -195,7 +195,7 @@ app.showDetails = function(key) {
 
     const detailedHtml = `
     <div class="imgContainer"><img src="${image}" alt="Image of ${name} from API"></div>
-    <div>
+    <div class="infoContainer">
         <h3>${name}</h3>
         <ul>
             <li>Info key : Info detail</li>
@@ -206,7 +206,7 @@ app.showDetails = function(key) {
         <h4>Description</h4>
         <p>${description}</p>
         <div class="orgInfo"></div>
-        <a href='#'>Back to search results</a>
+        <a class="return" href='#'>Back to search results</a>
     </div>
     `;
 
@@ -280,11 +280,16 @@ app.init = function() {
         // passing query into getInfo
         app.getInfo(query);
     });
-    $('#searchResults').on('click', "button", function(e) {
+    $('#searchResults').on('click', 'button', function(e) {
         e.preventDefault();
         const key = $(this).data('key');
         app.showDetails(key);
         // call key to make sure its working console.log(key, app.response.data[key]);
+    });
+    $('#detailedResults').on('click','.return', function(e) {
+        e.preventDefault();
+        $('#searchResultsSection').removeClass('hidden');
+        $('#detailedResults').addClass('hidden');
     });
 }
 

@@ -538,18 +538,33 @@ ul, li, a {
           align-items: center;
 }
 
+.detailedResults .flexParent .infoContainer {
+  width: 60%;
+}
+
 .detailedResults .flexParent .imgContainer {
   -ms-flex-item-align: start;
       align-self: flex-start;
   padding-right: 40px;
+  max-width: 40%;
 }
 
 .detailedResults .flexParent .imgContainer img {
+  width: 100%;
   border: 3px #429EC5 solid;
   border-radius: 30px;
 }
 
 .detailedResults .flexParent a {
+  color: #429EC5;
+  font-weight: 700;
+}
+
+.detailedResults .flexParent a:hover, .detailedResults .flexParent a:focus {
+  text-decoration: underline;
+}
+
+.detailedResults .flexParent a.return {
   display: inline-block;
   border: 3px #429EC5 solid;
   border-radius: 30px;
@@ -561,9 +576,10 @@ ul, li, a {
   margin: 7.5px;
 }
 
-.detailedResults .flexParent a:hover, .detailedResults .flexParent a:focus {
+.detailedResults .flexParent a.return:hover, .detailedResults .flexParent a.return:focus {
   background: #FFFFFF;
   color: #429EC5;
+  text-decoration: none;
 }
 
 footer {

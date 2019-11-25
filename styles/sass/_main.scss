@@ -115,15 +115,27 @@
         padding: 30px 0;
         display: flex;
         align-items: center;
+        .infoContainer {
+            width: 60%;
+        }
         .imgContainer {
             align-self: flex-start;
             padding-right: 40px;
+            max-width: 40%;
             img {
+                width: 100%;
                 border: 3px $popColour solid;
                 border-radius: $cardBorderRadius;
             }
         }
         a {
+            color: $popColour;
+            font-weight: 700;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
+        a.return {
             display: inline-block;
             border: 3px $popColour solid;
             border-radius: $cardBorderRadius;
@@ -135,6 +147,7 @@
             &:hover, &:focus {
                 background: $primaryWhite;
                 color: $popColour;
+                text-decoration: none;
             }
         }
     }

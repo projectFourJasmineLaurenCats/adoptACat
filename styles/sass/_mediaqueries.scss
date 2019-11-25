@@ -1,0 +1,35 @@
+@media (max-width: 940px) {
+    body {
+        border: 1px solid cyan;
+    }
+    .headerNav {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 784px) {
+    body {
+        border: 1px solid red;
+    }
+
+    .headerNav ul {
+        display: none;
+    }
+
+    .searchResults {
+        ul li {
+            width: calc(100% / 2 - 30px);
+        }
+
+        &:nth-of-type(2n) {
+            margin-right: 0;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        border: 1px solid lime;
+    }
+}

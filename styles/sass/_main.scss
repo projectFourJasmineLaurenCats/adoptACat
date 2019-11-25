@@ -82,7 +82,12 @@
                 }
             }
         }
+        li.errorMessage {
+            border: none;
+            margin: 20px auto 0 auto;
+        }
     }
+
 }
 
 .detailedResults {

@@ -34,7 +34,14 @@ ul, li, a {
             } 
         }
     }
+}
 
+.hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    display: none;
 }
 
 .footerNav {

@@ -131,6 +131,14 @@ app.displayInfo = function(response) {
     $('#searchResults').html('');
     $('#detailedResults').addClass('hidden');
 
+    if(response.status === 'error' || !('data' in response) || Object.keys(response.data).length === 0 ){
+        $('#searchResults').html (`
+            <li class="errorMessage">
+            <p> Error - No kitties found 😿</p>
+            </li>
+        `)
+    }
+
 
     // cycle through data from api 
     for(let key in response.data){

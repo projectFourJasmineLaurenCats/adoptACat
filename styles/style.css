@@ -372,6 +372,14 @@ ul, li, a {
   border-right: none;
 }
 
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  display: none;
+}
+
 .footerNav {
   text-align: center;
 }
@@ -489,6 +497,11 @@ ul, li, a {
 
 .searchResults ul li button:hover, .searchResults ul li button:focus {
   background: #429EC5;
+}
+
+.searchResults ul li.errorMessage {
+  border: none;
+  margin: 20px auto 0 auto;
 }
 
 .detailedResults {
@@ -651,6 +664,15 @@ footer .footerNav {
   .headerNav ul {
     display: none;
   }
+  header h1 {
+    font-size: 1.6rem;
+  }
+  header h2 {
+    text-align: center;
+  }
+  .hamburger {
+    display: initial;
+  }
   .searchResults ul li {
     width: calc(100% / 2 - 30px);
   }
@@ -662,5 +684,16 @@ footer .footerNav {
 @media (max-width: 420px) {
   body {
     border: 1px solid lime;
+  }
+  header {
+    background-position: top left;
+    height: 50vh;
+    min-height: 300px;
+  }
+  header .logo {
+    width: 100%;
+  }
+  header h2 {
+    font-size: 2rem;
   }
 }

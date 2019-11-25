@@ -107,7 +107,6 @@ app.collectInfo = function() {
 
 // RescueGroups API Request
 app.getInfo = function(query) {
-    console.log(query);
     $.ajax({
         url: app.apiUrl,
         method: 'POST',
@@ -115,12 +114,14 @@ app.getInfo = function(query) {
         data: JSON.stringify(query)
     })
     .then( (response) => {
-        console.log(response);
         app.response = response
-        // check if responding console.log(response); 
         app.displayInfo(response);
     }).fail((err) => {
-        console.log(err);
+        $('#searchResults').html (`
+            <li class="errorMessage">
+            <p> Error - No kitties found 😿</p>
+            </li>
+        `)
     })
 }
 
@@ -144,7 +145,6 @@ app.displayInfo = function(response) {
     for(let key in response.data){
         const name = response.data[key].animalName;
         // removed because data doesnt provide enough information currently without needing excessive modification. const age = response.data[key].animalAge
-        // console.log(response.data[key]);
         let image='';
 
         if (response.data[key].animalPictures.length === 0) {
@@ -168,14 +168,6 @@ app.displayInfo = function(response) {
     }
 }
 
-// maybe we can fix broken images? (???)
-// app.brokenImage = function() {
-//     console.log('this',this);
-//     imageSource.src = "assets/placeholderImage.png";
-//     imageSource.onerror = "";
-//     return true;
-// }
-
 app.showDetails = function(key) {
     // grab object of key so we dont have to type it every time.
     const kitty = app.response.data[key]
@@ -183,7 +175,6 @@ app.showDetails = function(key) {
     $('#searchResultsSection').addClass('hidden');
     $('#detailedResults').removeClass('hidden');
 
-    // console.log(kitty);
     let image='';
 
     if (kitty.animalPictures.length === 0) {
@@ -246,35 +237,39 @@ app.orgInfo = function(orgID) {
     })
 
     .then( (response) => {
-    if(response.data.length > 0 ) { 
-        const orgObject = response.data[0];
-        let orgHtml = `
-            <h4>Adoption Organization Information</h4>
-            <p>You can adopt this very good cat at ${orgObject.orgName}</p>
-        `;
-        if(orgObject.orgAdoptionUrl !== ''){
-            orgHtml += `
-            <p>This kitty's website is <a target="_blank" href="${orgObject.orgAdoptionUrl}">${orgObject.orgAdoptionUrl}</a></p>
-            `
+        if(response.data.length > 0 ) { 
+            const orgObject = response.data[0];
+            let orgHtml = `
+                <h4>Adoption Organization Information</h4>
+                <p>You can adopt this very good cat at ${orgObject.orgName}</p>
+            `;
+            if(orgObject.orgAdoptionUrl !== ''){
+                orgHtml += `
+                <p>This kitty's website is <a target="_blank" href="${orgObject.orgAdoptionUrl}">${orgObject.orgAdoptionUrl}</a></p>
+                `
+            }
+            if (orgObject.orgWebsiteUrl !== '') {
+                orgHtml += `
+                <p>This organization's website is <a target="_blank" href="${orgObject.orgWebsiteUrl}">${orgObject.orgWebsiteUrl}</a></p>
+                `
+            }
+            if (orgObject.orgPhone !== '') {
+                orgHtml += `
+                <p>You can call this organization to adopt this kitty at ${orgObject.orgPhone} </p>
+                `
+            }
+            $('.detailedResults .orgInfo').html(orgHtml);
         }
-        if (orgObject.orgWebsiteUrl !== '') {
-            orgHtml += `
-            <p>This organization's website is <a target="_blank" href="${orgObject.orgWebsiteUrl}">${orgObject.orgWebsiteUrl}</a></p>
-            `
+        else {
+            $('.detailedResults .orgInfo').html(`
+                <p>Error - No organization information found.</p>
+            `);
         }
-        if (orgObject.orgPhone !== '') {
-            orgHtml += `
-            <p>You can call this organization to adopt this kitty at ${orgObject.orgPhone} </p>
-            `
-        }
-        $('.detailedResults .orgInfo').html(orgHtml);
-    }
 
-
-        
-    // test that there is a response console.log(response);
     }).fail((err) => {
-        console.log(err);
+        $('.detailedResults .orgInfo').html(`
+            <p>Error - No organization information found.</p>
+        `);
     })
 }
 
@@ -292,7 +287,6 @@ app.init = function() {
         e.preventDefault();
         const key = $(this).data('key');
         app.showDetails(key);
-        // call key to make sure its working console.log(key, app.response.data[key]);
     });
     $('#detailedResults').on('click','.return', function(e) {
         e.preventDefault();

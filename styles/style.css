@@ -377,6 +377,7 @@ ul, li, a {
   top: 20px;
   right: 20px;
   font-size: 2rem;
+  color: #429EC5;
   display: none;
 }
 
@@ -632,6 +633,16 @@ footer .footerSocial i {
   padding-left: 20px;
 }
 
+footer .footerSocial a {
+  color: #FFFFFF;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
+}
+
+footer .footerSocial a:hover, footer .footerSocial a:focus {
+  color: #BE97D3;
+}
+
 footer .footerNav {
   width: 40%;
 }
@@ -673,11 +684,78 @@ footer .footerNav {
   .hamburger {
     display: initial;
   }
-  .searchResults ul li {
-    width: calc(100% / 2 - 30px);
+  .searchArea form .inputs input, .searchArea form .inputs select {
+    width: calc(100% / 2 - 20px);
   }
-  .searchResults:nth-of-type(2n) {
-    margin-right: 0;
+  .searchArea form button {
+    width: 50%;
+  }
+  .searchResults ul li {
+    width: 100%;
+    margin: 30px 0;
+  }
+  .detailedResults .flexParent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .detailedResults .flexParent .imgContainer, .detailedResults .flexParent .infoContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  .detailedResults .flexParent .imgContainer {
+    margin-bottom: 20px;
+  }
+  .detailedResults .flexParent a.return {
+    display: block;
+    text-align: center;
+  }
+  .footerInformation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footerInformation .footerText, .footerInformation .footerNav {
+    width: 100%;
+  }
+  .footerInformation .footerText {
+    text-align: center;
+  }
+  .footerInformation .footerNav {
+    margin: 20px 0;
+  }
+  .footerInformation .footerNav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footerInformation .footerSocial {
+    width: auto;
+  }
+  .footerInformation .footerSocial ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .footerInformation .footerSocial ul i {
+    padding: 0 15px;
   }
 }
 
@@ -695,5 +773,17 @@ footer .footerNav {
   }
   header h2 {
     font-size: 2rem;
+  }
+  .searchArea form .inputs input, .searchArea form .inputs select {
+    width: 100%;
+  }
+  .searchArea form button {
+    width: 100%;
+  }
+  .footerNav {
+    display: none;
+  }
+  .footerSocial {
+    margin-top: 40px;
   }
 }

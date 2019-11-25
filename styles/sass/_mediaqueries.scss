@@ -27,14 +27,70 @@
     .hamburger {
         display: initial;
     }
+
+    .searchArea form {
+        .inputs {
+            input, select {
+                width: calc(100% / 2 - 20px);
+            }
+        }
+        button {
+            width: 50%;
+        }
+    }
     
     .searchResults {
         ul li {
-            width: calc(100% / 2 - 30px);
+            width: 100%;
+            margin: 30px 0;
         }
-        
-        &:nth-of-type(2n) {
-            margin-right: 0;
+    }
+
+    .detailedResults .flexParent {
+        flex-direction: column;
+        .imgContainer, .infoContainer {
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .imgContainer {
+            margin-bottom: 20px;
+        }
+        a.return {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .footerInformation {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .footerText, .footerNav{
+            width: 100%;
+        }
+
+        .footerText {
+            text-align: center;
+        }
+
+        .footerNav {
+            margin: 20px 0;
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        .footerSocial {
+            width: auto;
+            ul {
+                flex-direction: row;
+                i {
+                    padding: 0 15px;
+                }
+            }
         }
     }
 }
@@ -53,5 +109,22 @@
         h2 {
             font-size: 2rem;
         }
+    }
+    .searchArea form {
+        .inputs {
+            input, select {
+                width: 100%
+            }
+        }
+        button {
+            width: 100%;
+        }
+    }
+    .footerNav {
+        display: none;
+    }
+
+    .footerSocial {
+        margin-top: 40px;
     }
 }

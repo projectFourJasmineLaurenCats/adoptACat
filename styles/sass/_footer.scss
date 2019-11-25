@@ -19,6 +19,13 @@ footer {
             font-size: 2rem;
             padding-left: 20px;
         }
+        a {
+            color: $primaryWhite;
+            transition: ease all 0.3s;
+            &:hover, &:focus {
+                color: $mainBackground;
+            }
+        }
     }
     .footerNav {
         width: 40%;

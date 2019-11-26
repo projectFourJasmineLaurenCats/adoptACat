@@ -5,39 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adopt A Cat</title>
-
+    <!-- Font Awesome Embed -->
     <script src="https://kit.fontawesome.com/5ca295eb00.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts Embed -->
     <link href="https://fonts.googleapis.com/css?family=Calistoga|Fredoka+One|Raleway:300,400,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet Linked -->
     <link rel="stylesheet" href="styles/style.css">
     <link type="image/icon" href="./assets/favicon.ico" rel="icon">
 </head>
 <body>
+    <!-- Header Section Starts Here -->
     <header id="home">
         <div class="wrapper">
+            <!-- Header Navigation Starts Here -->
             <nav class="headerNav">
                 <div class="logo">
                     <h1><i class="fas fa-paw"></i> Adopt a cat</h1>
                 </div>
-                <!-- Currently unused, waiting for stretch goals -->
                 <ul>
                     <li><a href="#home" class="selected">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#searchArea">Search for kitties</a></li>
                 </ul>
-                <!-- Not currently functional, functionality is stretch goal-->
+                <!-- Currently unused other than visibility in mobile, was a stretch goal to have operational, will add post project feedback for portfolio -->
                 <div class="hamburger">
                     <i class="fas fa-paw"></i>
                 </div>
             </nav>
+            <!-- Header Navigation Ends Here -->
             <h2>You need a friend!</h2>
         </div>
     </header>
-
+    <!-- Header Section Ends Here -->
+    <!-- Main Section Starts Here -->
     <main>
         <section id="searchArea" class="searchArea">
             <div class="wrapper">
                 <h2>Find your friend here</h2>
                 <p>Choose you purrfect feline companion:</p>
+                <!-- Form for Kitty Selection Process starts here -->
                 <form id="searchForCats" class="searchForCats" action="submit">
                     <div class="inputs">
                         <label class="visuallyHidden" for="postalCode">Postal Code</label>
@@ -111,6 +117,7 @@
 
                     <button id="findCats" type="submit">Find a kitty</button>
                 </form>
+                <!-- Form for kitty selection process ends here -->
             </div>
         </section>
         <section id="searchResultsSection" class="searchResults hidden">
@@ -125,31 +132,18 @@
             <div class="wrapper">
                 <h2>Is this your future friend?</h2>
                 <div class="flexParent">
-                    <div class="imgContainer"><img src="assets/placeholderImage.png" alt=""></div>
-                    <div>
-                        <h3>Name</h3>
-                        <ul>
-                            <li>Info key : Info detail</li>
-                            <li>Info key : Info detail</li>
-                            <li>Info key : Info detail</li>
-                            <li>Info key : Info detail</li>
-                        </ul>
-                        <h4>Description</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero iste, eius iusto excepturi saepe, nulla modi architecto est atque temporibus similique commodi ipsa! Reprehenderit explicabo quasi commodi neque debitis vitae.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero iste, eius iusto excepturi saepe, nulla modi architecto est atque temporibus similique commodi ipsa! Reprehenderit explicabo quasi commodi neque debitis vitae.</p>
-                        <a href='#' target="_blank">Link to adoption page</a>
-                        <a href='#' target="_blank">Back to search results</a>
-                    </div>
+                    <!-- detailed information will append here -->
                 </div>
             </div>
         </section>
     </main>
-
+    <!-- Main Section Ends Here -->
+    <!-- Footer Section Starts Here -->
     <footer id="about">
         <div class="wrapper">
             <div class="footerInformation">
                 <div class="footerText">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt hic non in perferendis, necessitatibus repellendus, porro facilis commodi quisquam, vitae vel voluptate. Et quos voluptate iste cupiditate exercitationem mollitia voluptatum?
+                    Burrow under covers. Ears back wide eyed shake treat bag cough furball scratch at the door then walk away. Rub face on everything meow for food, then when human fills food dish, take a few bites of food and continue meowing so lick the plastic bag mesmerizing birds with tail in the air. 
                 </div>
                 <nav class="footerNav">
                     <ul>
@@ -176,11 +170,11 @@
         </div>
                 <div class="copyright">
                     <p>
-                        Copyright 2019 Jasmine & Lauren
+                        &copy; 2019 Jasmine & Lauren, Lovers of all Kitties
                     </p>
                 </div>
     </footer>
-
+    <!-- Footer Section Ends Here -->
     <!-- scripts start here -->
     <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="./scripts/scripts.js"></script>

@@ -154,7 +154,7 @@ app.displayInfo = function(response) {
             image = response.data[key].animalPictures[0].urlSecureFullsize;
         }
 
-        
+        // alt tag left empty intentionally as SR will pull the name from the h3 below and we can't predict what the photo looks like
         const htmlToAdd = `
         <li>
         <div class="imgContainer"><img src="${image}" alt=""></div>
@@ -204,9 +204,9 @@ app.showDetails = function(key) {
         }
 
     });
-
+    // alt tags left empty intentionally as SR will pull the name from the h3 below
     const detailedHtml = `
-    <div class="imgContainer"><img src="${image}" alt="Image of ${name} from API"></div>
+    <div class="imgContainer"><img src="${image}" alt=" "></div>
     <div class="infoContainer">
         <h3>${name}</h3>
         <ul>

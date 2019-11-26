@@ -1,25 +1,3 @@
-
-    // Event onClick for find my kitty
-    // create search objects for each search option (size, sex, etc)
-    // set default selection to 'any' 
-    // if no postal/zipcode added or incorrectly formatted, pop up alert to nudge them to add / and show formatting of how to add postal code (A1B-2C3)
-    
-    // Use .val on drop down element to grab user input of each search option
-    // Pull all cats from API that match all search options
-    // .append <ul> inside of section 3 with search results
-    // ul will include li that includes images, name, age and view more button
-    // all detailed information will also pull but be hidden in an object and only display 👇🏽
-    // onClick of each li in ul, .append detailed cat information
-    // when user clicks on next kitty, previous object with detailed information will hide
-    // error handling - loading spinning cat head
-    // if nothing returns, have text to show with image of a cat saying no cats found in area.
-
-
-
-
-
-
-
 // API key & URL
 const app = {};
 app.apiKey='FR5X6Jh3';
@@ -48,10 +26,12 @@ function buildQuery(userInput){
                     criteria: 'Available'
                 }
             ],
+            // incredibly long list of fields
             fields: ['animalID', 'animalSpecies', 'animalPictures', 'animalOrgID', 'animalActivityLevel', 'animalAdoptedDate', 'animalAdoptionFee', 'animalAgeString', 'animalAltered', 'animalAvailableDate', 'animalBirthdate', 'animalBirthdateExact', 'animalBreed', 'animalCoatLength', 'animalColor', 'animalColorID', 'animalColorDetails', 'animalCourtesy', 'animalDeclawed', 'animalDescription', 'animalDescriptionPlain', 'animalEnergyLevel', 'animalEyeColor', 'animalGeneralAge', 'animalGeneralSizePotential', 'animalGroomingNeeds', 'animalHousetrained', 'animalIndoorOutdoor', 'animalLocation', 'animalLocationCoordinates', 'animalLocationDistance', 'animalLocationCitystate', 'animalMicrochipped', 'animalMixedBreed', 'animalName', 'animalSpecialneeds', 'animalSpecialneedsDescription', 'animalNewPeople', 'animalNotHousetrainedReason', 'animalObedienceTraining', 'animalOKWithAdults', 'animalOKWithCats', 'animalOKWithDogs', 'animalOKWithKids', 'animalPattern', 'animalPatternID', 'animalPrimaryBreed', 'animalPrimaryBreedID', 'animalRescueID', 'animalSearchString', 'animalSecondaryBreed', 'animalSecondaryBreedID', 'animalSex', 'animalShedding', 'animalSizeCurrent', 'animalSizePotential', 'animalSizeUOM', 'animalSpecies', 'animalSpeciesID', 'animalStatus', 'animalStatusID', 'animalSummary', 'animalThumbnailUrl', 'animalUptodate', 'animalUpdatedDate', 'animalUrl', 'animalVocal', 'animalAffectionate', 'animalApartment', 'animalDrools', 'animalEagerToPlease', 'animalEscapes', 'animalEventempered', 'animalFetches', 'animalGentle', 'animalGoodInCar', 'animalGoofy', 'animalHasAllergies', 'animalHearingImpaired', 'animalHypoallergenic', 'animalIndependent', 'animalIntelligent', 'animalLap', 'animalLeashtrained', 'animalNeedsCompanionAnimal', 'animalNoCold', 'animalOKForSeniors', 'animalOKWithFarmAnimals', 'animalOlderKidsOnly', 'animalOngoingMedical', 'animalPlayful', 'animalPlaysToys', 'animalPredatory', 'animalProtective', 'animalSightImpaired', 'animalSkittish', 'animalSpecialDiet', 'animalSwims', 'animalTimid', 'locationAddress', 'locationCity', 'locationCountry', 'locationUrl', 'locationName', 'locationPhone', 'locationState', 'locationPostalcode', 'animalPictures', 'animalVideos', 'animalVideoUrls']
         }
 
     }
+    // Add user inputs to query object
     for(let key in userInput){
         if(userInput[key] !== '' && userInput[key] !== 'any'){
             const filterItem = {
@@ -75,7 +55,7 @@ function buildQuery(userInput){
 app.collectInfo = function() {
     let postalCode = $('#postalCode').val();
 
-    //postal code missing space correction
+    //postal code missing space correction i.e. A1A1A1 --> A1A 1A1
     if(/^[a-z][0-9][a-z][0-9][a-z][0-9]$/i.test(postalCode)){
         postalCode = postalCode.slice(0, 3) + ' ' + postalCode.slice(3);
     }
@@ -83,7 +63,7 @@ app.collectInfo = function() {
     else if(!(/^[a-z][0-9][a-z] [0-9][a-z][0-9]$/i.test(postalCode) || /^[0-9]{5}$/.test(postalCode))) {
         alert('Please enter valid postal or zip code');
     }
-    //it is what it is
+    //it is what it is, would like to add styling to this in the future
 
 
     const age = $('#age').val();
@@ -107,6 +87,7 @@ app.collectInfo = function() {
 
 // RescueGroups API Request
 app.getInfo = function(query) {
+    // API works by POSTing a json query, and then working with the response
     $.ajax({
         url: app.apiUrl,
         method: 'POST',
@@ -144,7 +125,6 @@ app.displayInfo = function(response) {
     // cycle through data from api 
     for(let key in response.data){
         const name = response.data[key].animalName;
-        // removed because data doesnt provide enough information currently without needing excessive modification. const age = response.data[key].animalAge
         let image='';
 
         if (response.data[key].animalPictures.length === 0) {
@@ -168,6 +148,7 @@ app.displayInfo = function(response) {
     }
 }
 
+// Display full details of selected kitty
 app.showDetails = function(key) {
     // grab object of key so we dont have to type it every time.
     const kitty = app.response.data[key]
@@ -191,11 +172,14 @@ app.showDetails = function(key) {
         description = "No description available.";
     }
 
+    // These are the keys we want to list, if they exist in "kitty"
     const keysOfInterest = ['animalActivityLevel', 'animalBirthdate', 'animalBreed', 'animalCoatLength', 'animalColor', 'animalEnergyLevel', 'animalEyeColor', 'animalIndoorOutdoor', 'animalMicrochipped', 'animalSpecialneeds', 'animalOKWithCats', 'animalOKWithDogs', 'animalOKWithKids', 'animalSex', 'animalVocal', 'animalHasAllergies', 'animalHearingImpaired', 'animalHypoallergenic', 'animalOKForSeniors', 'animalOKWithFarmAnimals', 'animalOlderKidsOnly', 'animalPlayful', 'animalSkittish', 'animalSpecialDiet'];
     
+    // Append each one
     let infoTags = '';
     keysOfInterest.forEach((key) => {
         if(key in kitty && kitty[key] !== ''){
+            // Add spaces before each capital letter, and removed "animal" from the beginning
             infoTags += `
             <li>
             ${key.replace(/([A-Z])/g,' $1').slice(7)} : ${kitty[key]}
@@ -225,6 +209,7 @@ app.showDetails = function(key) {
     app.orgInfo(kitty.animalOrgID);
 };
 
+// Attempt to get adoption organization information
 app.orgInfo = function(orgID) {
     let orgInfo = `
     {
@@ -286,19 +271,21 @@ app.orgInfo = function(orgID) {
 
 // Start app
 app.init = function() {
+    // Listener for search form
     $('#searchForCats').on('submit', function(e) {
         e.preventDefault();
         const userInput = app.collectInfo();
-        // to do : put user input into build query
         const query = buildQuery(userInput);
         // passing query into getInfo
         app.getInfo(query);
     });
+    // Listener for getting kitty details
     $('#searchResults').on('click', 'button', function(e) {
         e.preventDefault();
         const key = $(this).data('key');
         app.showDetails(key);
     });
+    // Listener to return to search results
     $('#detailedResults').on('click','.return', function(e) {
         e.preventDefault();
         $('#searchResultsSection').removeClass('hidden');

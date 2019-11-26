@@ -3,6 +3,10 @@
 Main and Section Styles 
 ---------------------- 
 */
+
+button {
+    cursor: pointer;
+}
 .searchArea {
     padding: 40px 0;
     text-align: center;
@@ -17,6 +21,7 @@ Main and Section Styles
                 margin: 15px 0;
                 border: 0;
                 height: 40px;
+                padding: 0 10px;
             }
             select {
                 appearance: none;

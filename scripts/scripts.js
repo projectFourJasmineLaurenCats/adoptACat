@@ -284,12 +284,14 @@ app.init = function() {
         e.preventDefault();
         const key = $(this).data('key');
         app.showDetails(key);
+        $(document).scrollTop($('#detailedResults').offset().top);
     });
     // Listener to return to search results
     $('#detailedResults').on('click','.return', function(e) {
         e.preventDefault();
         $('#searchResultsSection').removeClass('hidden');
         $('#detailedResults').addClass('hidden');
+        $(document).scrollTop($('#searchResultsSection').offset().top);
     });
 }
 

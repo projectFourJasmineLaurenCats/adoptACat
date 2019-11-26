@@ -237,6 +237,7 @@ html {
 
 html {
   font-size: 125%;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -385,6 +386,10 @@ ul, li, a {
   text-align: center;
 }
 
+.footerNav a {
+  display: inline-block;
+}
+
 .searchArea {
   padding: 40px 0;
   text-align: center;
@@ -407,6 +412,16 @@ ul, li, a {
   margin: 15px 0;
   border: 0;
   height: 40px;
+}
+
+.searchArea form .inputs select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url(../assets/downArrow.png);
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: 98% 50%;
 }
 
 .searchArea form button {

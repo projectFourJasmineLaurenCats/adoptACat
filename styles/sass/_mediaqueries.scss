@@ -1,7 +1,4 @@
 @media (max-width: 940px) {
-    body {
-        border: 1px solid cyan;
-    }
     .headerNav {
         display: flex;
         flex-direction: column;
@@ -9,10 +6,6 @@
 }
 
 @media (max-width: 784px) {
-    body {
-        border: 1px solid red;
-    }
-
     .headerNav ul {
         display: none;
     }
@@ -96,9 +89,6 @@
 }
 
 @media (max-width: 420px) {
-    body {
-        border: 1px solid lime;
-    }
     header {
         background-position: top left;
         height: 50vh;

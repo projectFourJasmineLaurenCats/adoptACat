@@ -187,20 +187,31 @@ app.showDetails = function(key) {
     const name = kitty.animalName;
 
     let description = kitty.animalDescriptionPlain;
-    if (description==='') {
+    if (description === '') {
         description = "No description available.";
     }
 
+    const keysOfInterest = ['animalActivityLevel', 'animalBirthdate', 'animalBreed', 'animalCoatLength', 'animalColor', 'animalEnergyLevel', 'animalEyeColor', 'animalIndoorOutdoor', 'animalMicrochipped', 'animalSpecialneeds', 'animalOKWithCats', 'animalOKWithDogs', 'animalOKWithKids', 'animalSex', 'animalVocal', 'animalHasAllergies', 'animalHearingImpaired', 'animalHypoallergenic', 'animalOKForSeniors', 'animalOKWithFarmAnimals', 'animalOlderKidsOnly', 'animalPlayful', 'animalSkittish', 'animalSpecialDiet'];
+    
+    let infoTags = '';
+    keysOfInterest.forEach((key) => {
+        if(key in kitty && kitty[key] !== ''){
+            infoTags += `
+            <li>
+            ${key.replace(/([A-Z])/g,' $1').slice(7)} : ${kitty[key]}
+            </li>
+            `
+        }
+
+    });
 
     const detailedHtml = `
     <div class="imgContainer"><img src="${image}" alt="Image of ${name} from API"></div>
     <div class="infoContainer">
         <h3>${name}</h3>
         <ul>
-            <li>Info key : Info detail</li>
-            <li>Info key : Info detail</li>
-            <li>Info key : Info detail</li>
-            <li>Info key : Info detail</li>
+            ${infoTags}
+
         </ul>
         <h4>Description</h4>
         <p>${description}</p>

@@ -106,14 +106,9 @@
         font-size: 0.6rem;
         text-transform: uppercase;
         color: lighten($primaryBlack,50%);
-        display: flex;
-        flex-wrap: wrap;
         li {
-            width: calc(25% - (45px / 4));
-            margin-right: 15px;
-            &:nth-of-type(4n) {
-                margin-right: 0;
-            }
+            width: 100%;
+            margin: 10px 0;
         }
     }
     .flexParent {

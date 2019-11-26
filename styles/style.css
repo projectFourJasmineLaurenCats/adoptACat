@@ -288,6 +288,11 @@ select {
   margin: 0 auto;
 }
 
+/* 
+---------------------- 
+Header Styles 
+---------------------- 
+*/
 header {
   background: url(../assets/headerBackground.jpg);
   background-size: cover;
@@ -318,6 +323,11 @@ header h2 {
   font-size: 3rem;
 }
 
+/* 
+---------------------- 
+Navigation Styles 
+---------------------- 
+*/
 ul {
   padding: 0;
 }
@@ -390,6 +400,11 @@ ul, li, a {
   display: inline-block;
 }
 
+/* 
+---------------------- 
+Main and Section Styles 
+---------------------- 
+*/
 .searchArea {
   padding: 40px 0;
   text-align: center;
@@ -602,6 +617,11 @@ ul, li, a {
   text-decoration: none;
 }
 
+/* 
+---------------------- 
+Footer Styles 
+---------------------- 
+*/
 footer {
   background: #1B1B1B;
   color: #FFFFFF;
@@ -659,6 +679,11 @@ footer .footerNav {
   text-align: center;
 }
 
+/* 
+---------------------- 
+@media Styles 
+---------------------- 
+*/
 @media (max-width: 940px) {
   .headerNav {
     display: -webkit-box;
